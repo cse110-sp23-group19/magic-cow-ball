@@ -1,0 +1,39 @@
+body {
+	font-family: Arial, sans-serif;
+	text-align: center;
+	background-color: #ffc107;
+}
+
+h1 {
+	margin-top: 50px;
+	margin-bottom: 30px;
+}
+
+#magicCowBallImg {
+	width: 200px;
+	height: 200px;
+	margin: 20px;
+}
+
+#answerDiv {
+	display: none;
+}
+
+#answerDiv.show {
+	display: block;
+}
+
+.positive {
+	background-color: #28a745;
+	color: #fff;
+}
+
+.negative {
+	background-color: #dc3545;
+	color: #fff;
+}
+
+.neutral {
+	background-color: #ffc107;
+	color: #000;
+}
