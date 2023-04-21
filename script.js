@@ -28,24 +28,52 @@ const form = document.querySelector("form");
 const answerDiv = document.getElementById("answerDiv");
 const answer = document.getElementById("answer");
 const img = document.getElementById("magicCowBallImg");
+const cowFactDiv = document.getElementById("cowFactDiv");
+const cowFact = document.getElementById("cowFact");
+
+const cowFacts = [
+	"Cows have an excellent sense of smell and can detect odors up to six miles away.",
+	"A cow's stomach has four compartments: the rumen, reticulum, omasum, and abomasum.",
+	"Cows can sleep while standing up, but they can only dream when lying down.",
+	"On average, a cow can produce up to 6.3 gallons of milk per day.",
+	"Cows are social animals and can form close friendships with other members of their herd.",
+];
 
 form.addEventListener("submit", function (event) {
 	event.preventDefault();
 	const prompt = document.getElementById("prompt").value;
-	const response = getResponse();
-	answer.textContent = response.text;
-	answerDiv.classList.remove("positive", "negative", "neutral");
-	answerDiv.classList.add(response.type);
-	answerDiv.classList.add("show");
-	document.getElementById("moo").play();
-	document.body.style.backgroundColor = answerDiv.classList.contains("positive")
-		? "#28a745"
-		: answerDiv.classList.contains("negative")
-		? "#dc3545"
-		: "#ffc107";
+	img.classList.add("shake");
+	showCowFact();
+	setTimeout(function () {
+		const response = getResponse();
+		answer.textContent = response.text;
+		answerDiv.classList.remove("positive", "negative", "neutral");
+		answerDiv.classList.add(response.type);
+		answerDiv.classList.add("show");
+		img.classList.remove("shake");
+		cowFactDiv.classList.add("hide");
+		document.getElementById("moo").play();
+		document.body.style.backgroundColor = answerDiv.classList.contains("positive")
+			? "#28a745"
+			: answerDiv.classList.contains("negative")
+			? "#dc3545"
+			: "#ffc107";
+	}, 2000);
 });
 
 function getResponse() {
 	const randomIndex = Math.floor(Math.random() * responses.length);
 	return responses[randomIndex];
 }
+
+function showCowFact() {
+	const randomFactIndex = Math.floor(Math.random() * cowFacts.length);
+	cowFact.textContent = "Cow fact: " + cowFacts[randomFactIndex];
+	cowFactDiv.classList.remove("hide");
+}
+
+document.getElementById("shareTwitter").addEventListener("click", function () {
+	const text = encodeURIComponent(`I asked the Magic Cow Ball: "${prompt.value}" and got the answer: "${answer.textContent}" 🐮`);
+	const url = `https://twitter.com/intent/tweet?text=${text}`;
+	window.open(url, "_blank");
+});
