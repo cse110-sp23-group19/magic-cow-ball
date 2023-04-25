@@ -7,18 +7,20 @@
 	<audio id="moo" src="moo.mp3"></audio>
 </head>
 <body>
-	<h1>Magic Cow Ball</h1>
+	<div id="bubbles"></div>
+	<h1 id="magicTitle">Magic Cow Ball</h1>
+	<img id="magicCowBallImg" src="magic-cow-ball.png" alt="Magic Cow Ball" >
 	<div id="answerDiv">
-		<img id="magicCowBallImg" src="magic-cow-ball.png" alt="Magic Cow Ball" />
+		<!-- <img id="magicCowBallImg" src="magic-cow-ball.png" alt="Magic Cow Ball" > -->
 		<p id="answer"></p>
 	</div>
 	<div id="cowFactDiv" class="hide">
 		<p id="cowFact"></p>
 	</div>
 	<form>
-		<label for="prompt">Ask the Magic Cow Ball a question:</label><br />
-		<input type="text" id="prompt" name="prompt" size="50" required /><br /><br />
-		<input type="submit" value="Ask" />
+		<label id="questionLabel" for="prompt">Ask the Magic Cow Ball a question:</label><br />
+		<input type="text" id="prompt" name="prompt" size="75" required /><br /><br />
+		<input id="askButton" type="submit" value="Ask" />
 	</form>
 	<div class="share">
 		<p>Share your result:</p>
