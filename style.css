@@ -20,6 +20,8 @@ h1 {
 	margin: 20px;
 }
 
+
+
 #answerDiv {
 	display: none;
 }
@@ -28,9 +30,18 @@ h1 {
 	display: block;
 }
 
+
 #cowFactDiv {
 	margin-bottom: 20px;
+	padding-left: 35%;
+	padding-right: 35%;
+
+
 }
+#didYouKnow{
+	font-size: large;
+}
+
 
 #cowFactDiv.hide {
 	display: none;
