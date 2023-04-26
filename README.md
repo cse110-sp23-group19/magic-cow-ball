@@ -1,7 +1,7 @@
 # Magic Cow Ball
 
 link to site: https://cse110-sp23-group19.github.io/magic-cow-ball/
-
+link to our presentation: https://docs.google.com/presentation/d/1hpZul-eo91Z9--kLQDgR9xKHXAEcMA944_cknA-Y7Rc/edit?usp=sharing
 
 The Magic Cow Ball website is an interactive platform that allows users to ask questions and receive answers in a fun and whimsical way, using cow-themed puns, images, and sounds. The website has a playful design, featuring cow branding in line with the "Dead Beef" theme.
 
