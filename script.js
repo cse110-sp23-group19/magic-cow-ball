@@ -51,13 +51,16 @@ form.addEventListener("submit", function (event) {
 		answerDiv.classList.add(response.type);
 		answerDiv.classList.add("show");
 		img.classList.remove("shake");
-		cowFactDiv.classList.add("hide");
+		// cowFactDiv.classList.add("hide");
 		document.getElementById("moo").play();
 		document.body.style.backgroundColor = answerDiv.classList.contains("positive")
 			? "#28a745"
 			: answerDiv.classList.contains("negative")
 			? "#dc3545"
 			: "#ffc107";
+
+		// Show result effect
+		showResultEffect(response.type);
 	}, 2000);
 });
 
@@ -73,7 +76,36 @@ function showCowFact() {
 }
 
 document.getElementById("shareTwitter").addEventListener("click", function () {
-	const text = encodeURIComponent(`I asked the Magic Cow Ball: "${prompt.value}" and got the answer: "${answer.textContent}" 🐮`);
+	const text = encodeURIComponent(
+		`I asked the Magic Cow Ball: "${prompt.value}" and got the answer: "${answer.textContent}" 🐮`
+	);
 	const url = `https://twitter.com/intent/tweet?text=${text}`;
 	window.open(url, "_blank");
 });
+
+function setMagicTitleColor(elementId) {
+	const colors = ["#FF5733", "#FFC300", "#DAF7A6", "#581845", "#C70039", "#900C3F", "#FF5733"];
+	const randomIndex = Math.floor(Math.random() * colors.length);
+	document.getElementById(elementId).style.color = colors[randomIndex];
+}
+
+setInterval(() => setMagicTitleColor("magicTitle"), 1000);
+setInterval(() => setMagicTitleColor("questionLabel"), 1500);
+
+function createBubble() {
+	const bubble = document.createElement("div");
+	bubble.className = "bubble";
+	const size = Math.random() * 50 + 10;
+	bubble.style.width = size + "px";
+	bubble.style.height = size + "px";
+	bubble.style.left = Math.random() * 100 + "vw";
+	bubble.style.animationDuration = Math.random() * 3 + 2 + "s";
+	bubble.style.animationDelay = Math.random() * 3 + "s";
+	document.getElementById("bubbles").appendChild(bubble);
+
+	setTimeout(() => {
+		bubble.remove();
+	}, (Math.random() * 3 + 2) * 1000);
+}
+
+setInterval(createBubble, 300);
