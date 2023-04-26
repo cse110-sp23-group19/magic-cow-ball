@@ -59,20 +59,23 @@ form.addEventListener("submit", function (event) {
 			: answerDiv.classList.contains("negative")
 			? "#dc3545"
 			: "#ffc107";
-
-		// Show result effect
-		showResultEffect(response.type);
 	}, 2000);
 });
 
 function getResponse() {
 	const randomIndex = Math.floor(Math.random() * responses.length);
+	console.log(responses[randomIndex]["text"]);
+	const errorMsg = "the response is not a string";
+	console.assert(typeof responses[randomIndex]["text"] === "string", "%o", { errorMsg });
 	return responses[randomIndex];
 }
 
 function showCowFact() {
 	const randomFactIndex = Math.floor(Math.random() * cowFacts.length);
 	cowFact.textContent = "Cow fact: " + cowFacts[randomFactIndex];
+	console.log(cowFacts[randomFactIndex]);
+	const errorMsg = "the response is not a string";
+	console.assert(typeof cowFacts[randomFactIndex] === "string", "%o", { errorMsg });
 	cowFactDiv.classList.remove("hide");
 }
 
@@ -87,6 +90,8 @@ document.getElementById("shareTwitter").addEventListener("click", function () {
 function setMagicTitleColor(elementId) {
 	const colors = ["#FF5733", "#FFC300", "#DAF7A6", "#581845", "#C70039", "#900C3F", "#FF5733"];
 	const randomIndex = Math.floor(Math.random() * colors.length);
+	const errorMsg = "the response is not a 6 digit color";
+	console.assert(colors[randomIndex].length === 7, "%o", { errorMsg });
 	document.getElementById(elementId).style.color = colors[randomIndex];
 }
 
