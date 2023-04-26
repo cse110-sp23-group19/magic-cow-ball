@@ -18,9 +18,9 @@ h1 {
 	width: 200px;
 	height: 200px;
 	margin: 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 40px rgba(255, 255, 255);
 }
-
-
 
 #answerDiv {
 	display: none;
@@ -30,18 +30,18 @@ h1 {
 	display: block;
 }
 
-
 #cowFactDiv {
-	margin-bottom: 20px;
-	padding-left: 35%;
-	padding-right: 35%;
-
-
+	width: 30%;
+	margin: 20px auto 20px auto;
+	border-radius: 10px;
+	padding: 5px 10px 5px 10px;
+	background-color: rgba(255, 255, 255, 0.2);
+	border: none;
+	backdrop-filter: blur(10px);
 }
-#didYouKnow{
+#didYouKnow {
 	font-size: large;
 }
-
 
 #cowFactDiv.hide {
 	display: none;
@@ -68,72 +68,94 @@ h1 {
 }
 
 @keyframes shake {
-	0% { transform: translate(1px, 1px) rotate(0deg); }
-	10% { transform: translate(-1px, -1px) rotate(-1deg); }
-	20% { transform: translate(-1px, 1px) rotate(1deg); }
-	30% { transform: translate(1px, 1px) rotate(0deg); }
-	40% { transform: translate(1px, -1px) rotate(1deg); }
-	50% { transform: translate(-1px, 1px) rotate(-1deg); }
-	60% { transform: translate(-1px, -1px) rotate(0deg); }
-	70% { transform: translate(1px, 1px) rotate(-1deg); }
-	80% { transform: translate(-1px, 1px) rotate(1deg); }
-	90% { transform: translate(1px, 1px) rotate(0deg); }
-	100% { transform: translate(1px, -1px) rotate(-1deg); }
+	0% {
+		transform: translate(1px, 1px) rotate(0deg);
 	}
-	
-	.share {
-		margin-top: 20px;
+	10% {
+		transform: translate(-1px, -1px) rotate(-1deg);
 	}
-	
-	.shareBtn {
-		background-color: #1da1f2;
-		border: none;
-		color: white;
-		padding: 15px 30px;
-		text-align: center;
-		text-decoration: none;
-		display: inline-block;
-		margin: 4px 2px;
-		cursor: pointer;
-		border-radius: 16px;
-		font-size: 16px;
+	20% {
+		transform: translate(-1px, 1px) rotate(1deg);
 	}
-	
-	.shareBtn:hover {
-		background-color: #0e7ac0;
+	30% {
+		transform: translate(1px, 1px) rotate(0deg);
 	}
-	
-	#askButton {
-		padding: 10px 20px;
-		font-size: 18px;
+	40% {
+		transform: translate(1px, -1px) rotate(1deg);
 	}
-	
-	#prompt {
-		font-size: 16px;
-		height: 30px;
+	50% {
+		transform: translate(-1px, 1px) rotate(-1deg);
 	}
+	60% {
+		transform: translate(-1px, -1px) rotate(0deg);
+	}
+	70% {
+		transform: translate(1px, 1px) rotate(-1deg);
+	}
+	80% {
+		transform: translate(-1px, 1px) rotate(1deg);
+	}
+	90% {
+		transform: translate(1px, 1px) rotate(0deg);
+	}
+	100% {
+		transform: translate(1px, -1px) rotate(-1deg);
+	}
+}
 
-	#bubbles {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		overflow: hidden;
-		z-index: -1;
-	  }
-	  
-	  .bubble {
-		position: absolute;
-		border-radius: 50%;
-		background-color: rgba(255, 255, 255, 0.2);
-		animation: float linear infinite;
-		will-change: transform;
-	  }
-	  
-	  @keyframes float {
-		0% {
-		  transform: translateY(100%) translateX(0);
-		}
-		100% {
-		  transform: translateY(-100%) translateX(0);
-		}
-	  }
+.share {
+	margin-top: 20px;
+}
+
+.shareBtn {
+	background-color: #1da1f2;
+	border: none;
+	color: white;
+	padding: 15px 30px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 16px;
+	font-size: 16px;
+}
+
+.shareBtn:hover {
+	background-color: #0e7ac0;
+}
+
+#askButton {
+	padding: 10px 20px;
+	font-size: 18px;
+}
+
+#prompt {
+	font-size: 16px;
+	height: 30px;
+}
+
+#bubbles {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	z-index: -1;
+}
+
+.bubble {
+	position: absolute;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, 0.2);
+	animation: float linear infinite;
+	will-change: transform;
+}
+
+@keyframes float {
+	0% {
+		transform: translateY(100%) translateX(0);
+	}
+	100% {
+		transform: translateY(-100%) translateX(0);
+	}
+}
