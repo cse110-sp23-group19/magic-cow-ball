@@ -59,10 +59,9 @@ form.addEventListener("submit", function (event) {
 			: answerDiv.classList.contains("negative")
 			? "#dc3545"
 			: "#ffc107";
-	
+
 		// Show result effect
 		showResultEffect(response.type);
-	
 	}, 2000);
 });
 
@@ -78,14 +77,15 @@ function showCowFact() {
 }
 
 document.getElementById("shareTwitter").addEventListener("click", function () {
-	//TODO: Insert link to the app here
-	const text = encodeURIComponent(`I asked the Magic Cow Ball: "${prompt.value}" and got the answer: "${answer.textContent}" 🐮`);
+	const text = encodeURIComponent(
+		`I asked the Magic Cow Ball: "${prompt.value}" and got the answer: "${answer.textContent}" 🐮`
+	);
 	const url = `https://twitter.com/intent/tweet?text=${text}`;
 	window.open(url, "_blank");
 });
 
 function setMagicTitleColor(elementId) {
-	const colors = ['#FF5733', '#FFC300', '#DAF7A6', '#581845', '#C70039', '#900C3F', '#FF5733'];
+	const colors = ["#FF5733", "#FFC300", "#DAF7A6", "#581845", "#C70039", "#900C3F", "#FF5733"];
 	const randomIndex = Math.floor(Math.random() * colors.length);
 	document.getElementById(elementId).style.color = colors[randomIndex];
 }
@@ -103,10 +103,10 @@ function createBubble() {
 	bubble.style.animationDuration = Math.random() * 3 + 2 + "s";
 	bubble.style.animationDelay = Math.random() * 3 + "s";
 	document.getElementById("bubbles").appendChild(bubble);
-  
+
 	setTimeout(() => {
-	  bubble.remove();
+		bubble.remove();
 	}, (Math.random() * 3 + 2) * 1000);
-  }
-  
-  setInterval(createBubble, 300);
+}
+
+setInterval(createBubble, 300);
